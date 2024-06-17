@@ -20,7 +20,8 @@ const schema = a.schema({
     username:a.string().default("USER"),
     firstName:a.string().default("USER"),
     lastName:a.string().default("USER"),
-  }),
+  })
+  .authorization((allow) => [allow.owner()]),
 });
 
 export type Schema = ClientSchema<typeof schema>;
